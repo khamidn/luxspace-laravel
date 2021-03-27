@@ -26,6 +26,10 @@ class ProductController extends Controller
                             })
                             ->addColumn('action', function($item){
                                 return '
+                                    <a href="'.route('dashboard.product.gallery.index', $item->id).'" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 rounded shadow-lg m-2">
+                                        Gallery
+                                    </a>
+
                                     <a href="'.route('dashboard.product.edit', $item->id).'" class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded shadow-lg m-2">
                                         Edit
                                     </a>

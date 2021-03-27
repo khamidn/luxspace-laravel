@@ -16,6 +16,14 @@
                         {{ __('Dashboard') }}
                     </x-jet-nav-link>
                 </div>
+
+                @if(Auth::user()->roles == 'ADMIN')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                            {{ __('Products') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ml-6">
@@ -141,6 +149,14 @@
             <x-jet-responsive-nav-link href="{{ route('dashboard.index') }}" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-jet-responsive-nav-link>
+
+            @if(Auth::user()->roles == 'ADMIN')
+                    <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ route('dashboard.product.index') }}" :active="request()->routeIs('dashboard.product.index')">
+                            {{ __('Products') }}
+                        </x-jet-nav-link>
+                    </div>
+                @endif
         </div>
 
         <!-- Responsive Settings Options -->
