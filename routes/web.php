@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProductGalleryController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,5 +39,8 @@ Route::middleware(['auth:sanctum', 'verified'])->name('dashboard.')->prefix('das
 			->only('index', 'create', 'store', 'destroy');
 		Route::resource('transaction', TransactionController::class)
 			->only('index', 'show', 'edit', 'update', 'destroy');
+		Route::resource('user', UserController::class)
+			->only('index', 'edit', 'update', 'destroy');
+
 	});
 });

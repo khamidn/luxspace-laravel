@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Product &raquo; {{ $product->name }} &raquo; Edit
+            Product &raquo; Create
         </h2>
     </x-slot>
 
@@ -26,13 +26,12 @@
                 @endif
 
                 <form 
-                    action="{{ route('dashboard.product.update', $product->id )}}"
+                    action="{{ route('dashboard.product.store')}}"
                     class="w-full"
                     method="POST"
                     enctype="multipart/form-data">
                     
                     @csrf
-                    @method("PUT")
 
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full px-3">
@@ -42,7 +41,7 @@
                             <input 
                                 type="text" 
                                 name="name"
-                                value="{{ old('name') ?? $product->name }}"
+                                value="{{ old('name') }}"
                                 class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tigh focus:outline-none focus:bg-white focus:border-gray-500"
                                 placeholder="Product Name">
                         </div>
@@ -57,7 +56,7 @@
                                 type="text" 
                                 name="description"
                                 class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tigh focus:outline-none focus:bg-white focus:border-gray-500"
-                                placeholder="Product Description">{!! old('description') ?? $product->description !!}</textarea>
+                                placeholder="Product Description">{!! old('description') !!}</textarea>
                         </div>
                     </div>
 
@@ -69,7 +68,7 @@
                             <input 
                                 type="number" 
                                 name="price"
-                                value="{{ old('price') ?? $product->price}}"
+                                value="{{ old('price')}}"
                                 class="block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tigh focus:outline-none focus:bg-white focus:border-gray-500"
                                 placeholder="Product Price">
                         </div>
@@ -80,7 +79,7 @@
                             <button 
                                 type="submit" 
                                 class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow-lg">
-                                Update Product
+                                Save Product
                             </button>
                         </div>
                     </div>
